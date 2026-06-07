@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->decimal('total_amount', 12, 2)->default(0);
+            $table->decimal('total_margin', 12, 2)->default(0);
             $table->timestamps();
         });
     }
